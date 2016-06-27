@@ -1,0 +1,86 @@
+{$header$}
+<title>募集情報 - 採用情報 | 株式会社ゲームエイト</title>
+<meta name="description" content="">
+<meta name="keyword" content="採用,職種,Game8">
+
+
+<!-- OGP -->
+<meta property="og:image" content="http://game8.com/user/img/og.png">
+
+</head>
+
+<body class="is-page-corporate is-navi-recruit is-subnavi-01">
+<div class="l-wrapper">
+
+<header>
+{$menu$}
+<div class="l-subheader">
+<div class="l-inr">
+	<h1 class="header-title bold">採用情報</h1>
+	<div id="scroll">
+	<nav class="l-subnavi">
+		<a class="subnavi-01" href="/recruit/">募集情報</a>
+		<a class="subnavi-02" href="/recruit/environment/">環境紹介</a>
+	</nav>
+	</div>
+</div>
+</div>
+</header>
+
+<nav class="l-navi sp-only" id="js-overlay">
+	<button class="navi-close" id="js-overlay-close">
+		<img src="/user/img/navi-close.png" alt="閉じる" />
+	</button>
+	<div class="l-navi-links">
+		<ul class="items-wrap">
+			<li><a class="navi-corporate" href="/corporate/about/">企業情報</a></li>
+			<li><a class="navi-service" href="/service/">サービス紹介</a></li>
+			<li><a class="navi-news" href="/news/">ニュース</a></li>
+			<li><a class="navi-recruit" href="/recruit/">採用情報</a></li>
+			<li><a class="navi-contact" href="/contact/pr/">お問い合わせ</a></li>
+		</ul>
+		<ul class="items-wrap subnavi">
+			<li><a href="#">プライバシーポリシー</a></li>
+			<li><a href="/corporate/#accessmap">アクセスマップ</a></li>
+		</ul>
+	</div>
+</nav>
+
+<article class="l-contents">
+
+	<section class="sec-recruit-intro">
+		<div class="intro-bg"><div class="cover"></div></div>
+		<div class="l-inr">
+			<h2 class="sec-header bold">共に成長できるメンバーを<br>募集しています。</h2>
+			<p class="text">「ゲームが好き」なだけで終わるより、「ゲームをきっかけに、どのIT企業にも負けないくらいのスキルを備えた人材」に成長するチャンスを求めるなら、
+				ゲームエイト編集部で一緒に働いてみませんか？</p>
+			<p class="link"><a href="/recruit/environment/" class="btn btn-border-black btn-medium fm">環境を見る</a></p>
+		</div>
+	</section>
+
+	<section class="sec-recruit-job">
+		<div class="l-inr">
+		<h3 class="sec-header bold">現在の募集職種</h3>
+		{$loop}
+		<div class="item">
+			<div class="item-img"><img src="{$image(1,230,156,'trim')}" /></div>
+			<div class="item-detail">
+				<h4 class="item-name">{$title}</h4>
+				<p class="item-text">{$detail(1)}</p>
+			</div>
+			<p class="item-link"><a href="{$detail_link(1)}" class="btn btn-next btn-medium fm" target="">エントリーする</a></p>
+		</div>
+		{$/loop}
+
+		<!-- 募集なしの場合 -->
+		<div class="item">
+				<p class="item-none">現在募集中の職種はありません。</p>
+		</div>
+
+		</div>
+
+	</section>
+
+</article>
+
+{$footer$}

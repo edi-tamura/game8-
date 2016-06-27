@@ -1,0 +1,12 @@
+{$loop count=5}
+<section class="entry_item">
+  <dl>
+    <dt>
+      <time>{$date('Y/m/d')}</time>
+      <div class="category{if $param_cat eq 'INFORMATION'} information{/if}{if $param_cat eq 'EVENT'} event{/if}{if $param_cat eq 'PRODUCT'} product{/if}">{$cate}</div>
+    </dt>
+    <dd>{$title}</dd>
+  </dl>
+  <div class="arrow_right"></div>
+  <a href="{$url}" class="entry_link"></a>
+</section>

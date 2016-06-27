@@ -1,0 +1,78 @@
+{$header$}
+
+<!-- OGP -->
+<meta property="og:url" content="http://game8.com">
+<meta property="og:image" content="/user/img/og.png">
+<meta property="og:description" content="">
+
+</head>
+
+<body class="is-page-home is-navi-home">
+<div class="l-wrapper">
+
+{$menu$}
+
+</header>
+
+<nav class="l-navi sp-only" id="js-overlay">
+	<button class="navi-close" id="js-overlay-close">
+		<img src="/user/img/navi-close.png" alt="閉じる" />
+	</button>
+	<div class="l-navi-links">
+		<ul class="items-wrap">
+			<li><a class="navi-corporate" href="/corporate/about/">企業情報</a></li>
+			<li><a class="navi-service" href="/service/">サービス紹介</a></li>
+			<li><a class="navi-news" href="/news/">ニュース</a></li>
+			<li><a class="navi-recruit" href="/recruit/">採用情報</a></li>
+			<li><a class="navi-contact" href="/contact/pr/">お問い合わせ</a></li>
+		</ul>
+		<ul class="items-wrap subnavi">
+			<li><a href="#">プライバシーポリシー</a></li>
+			<li><a href="/corporate/#accessmap">アクセスマップ</a></li>
+		</ul>
+	</div>
+</nav>
+
+<article class="l-contents">
+
+	<section class="sec-top-intro">
+		<div class="intro-bg"><div class="cover"></div></div>
+		<div class="contents">
+			<h1 class="logo"><img src="/user/img/logo-img.png" alt="Game8ロゴ画像" /></h1>
+			<p class="text bold">ゲームをもっと楽しくする</p>
+			<p class="link pc-only"><a href="/corporate/about/" class="btn btn-border-white btn-medium fm font-en">READ MORE</a></p>
+		</div>
+	</section>
+
+  <section class="sec-top-service">
+		<div class="l-inr">
+		<div class="img"><img src="/user/img/top/top-bg-service.png" alt="game8.jp（ゲームエイト）サイト画面イメージ" /></div>
+		<div class="contents">
+			<h2 class="sec-header bold">サービス</h2>
+			<p class="text">私たちは現在game8.jp（ゲームエイト）という月間1000万人以上が訪れるのゲーム総合情報Webサービスを運営、提供しています。ゲームエイト は、「ゲームをもっと楽しくする」というコンセプトで2014年夏にβ版としてスタートした、ゲームユーザー向けのWebサービスです。</p>
+			<p class="link"><a href="/corporate/about/" class="btn btn-border-black btn-medium fm font-en">READ MORE</a></p>
+		</div>
+		</div>
+	</section>
+
+	<section class="sec-top-news">
+		<div class="l-inr">
+			<h2 class="sec-header bold">ニュース</h2>
+			<ul class="items is-column-4">
+				{$WGT->PARTS('news')}
+			</ul>
+			<p class="link"><a href="/news/" class="btn btn-border-black btn-medium fm font-en">READ MORE</a></p>
+		</div>
+	</section>
+
+	<section class="sec-top-recruit">
+		<div class="ending-bg"></div>
+		<div class="contents">
+			<p class="text bold">ゲームエイトで<br>共に成長できる<br>メンバーを募集しています。</p>
+			<p class="link"><a href="/recruit/" class="btn btn-border-white btn-medium fm font-en">READ MORE</a></p>
+		</div>
+	</section>
+
+</article>
+
+{$footer$}

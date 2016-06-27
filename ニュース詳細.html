@@ -1,0 +1,84 @@
+
+{$header$}
+<title>{$title} | ニュース | 株式会社ゲームエイト</title>
+<meta name="description" content="">
+<meta property="og:title" content="{$title} | ニュース | 株式会社ゲームエイト">
+<meta property="og:image" content="{$image(1)}">
+</head>
+
+<body class="is-page-corporate is-navi-news is-subnavi-01">
+<div class="l-wrapper">
+
+<header>
+{$menu$}
+<div class="l-subheader">
+<div class="l-inr">
+	<h1 class="header-title bold">ニュース</h1>
+	<div id="scroll">
+	<nav class="l-subnavi">
+		<a class="subnavi-01" href="/recruit/">全て</a>
+		<a class="subnavi-02" href="/recruit/environment/">プレスリリース</a>
+		<a class="subnavi-03" href="/recruit/environment/">ニュース</a>
+		<a class="subnavi-04" href="/recruit/environment/">リクルート</a>
+		<a class="subnavi-05" href="/recruit/environment/">その他</a>
+	</nav>
+	</div>
+</div>
+</div>
+</header>
+
+<nav class="l-navi sp-only" id="js-overlay">
+	<button class="navi-close" id="js-overlay-close">
+		<img src="/user/img/navi-close.png" alt="閉じる" />
+	</button>
+	<div class="l-navi-links">
+		<ul class="items-wrap">
+			<li><a class="navi-corporate" href="/corporate/about/">企業情報</a></li>
+			<li><a class="navi-service" href="/service/">サービス紹介</a></li>
+			<li><a class="navi-news" href="/news/">ニュース</a></li>
+			<li><a class="navi-recruit" href="/recruit/">採用情報</a></li>
+			<li><a class="navi-contact" href="/contact/pr/">お問い合わせ</a></li>
+		</ul>
+		<ul class="items-wrap subnavi">
+			<li><a href="#">プライバシーポリシー</a></li>
+			<li><a href="/corporate/#accessmap">アクセスマップ</a></li>
+		</ul>
+	</div>
+</nav>
+
+<article class="l-contents">
+
+	<section class="sec-news-header">
+		<div class="intro-bg">
+		<div class="cover">
+			<div class="l-inr">
+				<div class="contents">
+				<h1 class="sec-header bold">{$title}</h1>
+				<p class="text">{$date('Y.m.d')}</p>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<section class="sec-news-detail">
+		<div class="l-inr">
+		<h3 class="sec-header">インターネットマーケティングの総合コンサルティング企業メディックスが、「AIアナリスト」を導入します。</h3>
+
+		<div class="contents">
+		{$blog_text}
+		</div>
+
+		<div class="pagination list-pagination">
+			<div class="pagination-prev font-en"><span><i class="icon icon-arrow_lb"></i>Prev</span></div>
+			<div class="pagination-next font-en"><a href="#" class="is-active">Next<i class="icon icon-arrow_rb"></i></a></div>
+			<div class="link bold"><a href="/contents/news/">ニュース一覧</a></div>
+		</div>
+
+
+		</div>
+	</section>
+
+</article>
+
+{$footer$}

@@ -1,0 +1,97 @@
+
+{$header$}
+<title>ニュース | 株式会社ゲームエイト</title>
+<meta name="description" content="">
+<meta property="og:image" content="http://game8.com/user/img/og.png">
+</head>
+
+<body class="is-page-corporate is-navi-news is-subnavi-01">
+<div class="l-wrapper">
+
+<header>
+{$menu$}
+<div class="l-subheader">
+<div class="l-inr">
+	<h1 class="header-title bold">ニュース</h1>
+	<div id="scroll">
+	<nav class="l-subnavi">
+		<a class="subnavi-01" href="/recruit/">全て</a>
+		<a class="subnavi-02" href="{$cate_id '1'}">プレスリリース</a>
+		<a class="subnavi-03" href="/recruit/environment/">ニュース</a>
+		<a class="subnavi-04" href="/recruit/environment/">リクルート</a>
+		<a class="subnavi-05" href="/recruit/environment/">その他</a>
+		{foreach from=$catlist item=obj key=key}
+            <a　class="subnavi-01" href="/news/{$obj.name|escape:'url'}" class="navigation__item {if $param_cat_name eq $obj.name}is-current{/if}">{$obj.name}</a>
+			{/foreach}
+	</nav>
+	</div>
+</div>
+</div>
+</header>
+
+<nav class="l-navi sp-only" id="js-overlay">
+	<button class="navi-close" id="js-overlay-close">
+		<img src="/user/img/navi-close.png" alt="閉じる" />
+	</button>
+	<div class="l-navi-links">
+		<ul class="items-wrap">
+			<li><a class="navi-corporate" href="/corporate/about/">企業情報</a></li>
+			<li><a class="navi-service" href="/service/">サービス紹介</a></li>
+			<li><a class="navi-news" href="/news/">ニュース</a></li>
+			<li><a class="navi-recruit" href="/recruit/">採用情報</a></li>
+			<li><a class="navi-contact" href="/contact/pr/">お問い合わせ</a></li>
+		</ul>
+		<ul class="items-wrap subnavi">
+			<li><a href="#">プライバシーポリシー</a></li>
+			<li><a href="/corporate/#accessmap">アクセスマップ</a></li>
+		</ul>
+	</div>
+</nav>
+
+<article class="l-contents">
+
+	<section class="sec-news-intro">
+		<div class="intro-bg"><div class="cover"></div></div>
+	</section>
+
+	<section class="sec-news-list">
+
+	<div class="l-inr">
+		<ul class="items">
+
+			{$loop}
+			<li class="item">
+				<a href="{$url}">
+					<div class="item-img">{if $wg->is_image(1) eq'0'}<img src="/user/img/top/top-news-noimg.gif" />{/if}{if $wg->is_image(1) eq'1'}<img src="{$image(1,220,142,'trim')}" />{/if}</div>
+					<div class="contents">
+					<p class="item-info"><span class="item-category">{if $cts.category_name eq 'News Topocs'}News Topocs{/if}{if $cts.category_name eq 'Press Release'}Press Release{/if}{if $cts.category_name eq 'Recruit'}Recruit{/if}{if $cts.category_name eq 'Other'}Other{/if}</span><span class="item-date">{$date}</span></p>
+					<p class="item-text">{$title}</p>
+					</div>
+				</a>
+			</li>
+			{$/loop}
+
+		</ul>
+
+		<div class="pagination list-pagination">
+		{section name=item loop=$pagenavi}
+        	{assign var=obj value=$pagenavi[item]}
+        	{assign var=page_url value=$obj.param}
+        	{assign var=page_no value=$obj.page}
+			{if $obj.type eq 'first'}<div class="pagination-prev font-en"><span><i class="icon icon-arrow_lb"></i>Prev</span></div>{/if}
+			{if $obj.type eq 'prev'}<div class="pagination-prev font-en"><a href="{$page_url}{$obj.page}" class="is-active"><span><i class="icon icon-arrow_lb"></i>Prev</span></a></div>{/if}
+			{if $obj.type eq 'next'}<div class="pagination-next font-en"><a href="{$page_url}{$obj.page}" class="is-active">Next<i class="icon icon-arrow_rb"></i></a></div>{/if}
+			{if $obj.type eq 'last'}<div class="pagination-next font-en"><span><i class="icon icon-arrow_rb"></i>Next</span></div>{/if}
+			<div class="pagination-number">
+				{if $obj.type eq 'current'}<span class="number-item is-current">{$obj.page}</span>{/if}
+				{if $obj.type eq 'normal'<a href="{$page_url}{$obj.page}" class="number-item">{$obj.page}</a>{/if}
+			</div>
+		</div>
+
+	</div>
+
+	</section>
+
+</article>
+
+{$footer$}
