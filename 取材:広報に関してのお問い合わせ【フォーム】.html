@@ -1,0 +1,143 @@
+{$header$}
+<title>取材/広報に関してのお問い合わせ（入力） - お問い合わせ | 株式会社ゲームエイト</title>
+<meta name="keyword" content="お問い合わせ,取材広報,Game8">
+
+</head>
+
+<body class="is-page-contact is-navi-contact is-subnavi-01">
+<div class="l-wrapper">
+
+<header class="l-header">
+<div class="l-inr">
+	<button class="l-header-menu sp-only" id="js-overlay-open">
+		<img src="/user/img/navi-open.png" alt="開く" />
+	</button>
+	<p class="l-header-logo"><a href="/"><span>Game8</span></a></p>
+	<nav class="l-navi pc-only">
+		<a class="navi-corporate" href="/corporate/about/">企業情報</a>
+		<a class="navi-service" href="/service/">サービス紹介</a>
+		<a class="navi-news" href="/news/">ニュース</a>
+		<a class="navi-recruit" href="/recruit/">採用情報</a>
+	</nav>
+	<p class="l-header-link pc-only"><a href="/contact/pr/" class="btn btn-white btn-small fs">お問い合わせ</a></p>
+</div>
+<div class="l-subheader">
+<div class="l-inr">
+	<h2 class="header-title bold">お問い合わせ</h2>
+	<div id="scroll">
+	<nav class="l-subnavi">
+		<a class="subnavi-01" href="/contact/pr/">取材広報に関して</a>
+		<a class="subnavi-02" href="/contact/service/">サービスに関して</a>
+		<a class="subnavi-03" href="/contact/recruit/">採用に関して</a>
+	</nav>
+	</div>
+</div>
+</div>
+</header>
+
+<nav class="l-navi sp-only" id="js-overlay">
+	<button class="navi-close" id="js-overlay-close">
+		<img src="/user/img/navi-close.png" alt="閉じる" />
+	</button>
+	<div class="l-navi-links">
+		<ul class="items-wrap">
+			<li><a class="navi-corporate" href="/corporate/about/">企業情報</a></li>
+			<li><a class="navi-service" href="/service/">サービス紹介</a></li>
+			<li><a class="navi-news" href="/news/">ニュース</a></li>
+			<li><a class="navi-recruit" href="/recruit/">採用情報</a></li>
+			<li><a class="navi-contact" href="/contact/pr/">お問い合わせ</a></li>
+		</ul>
+		<ul class="items-wrap subnavi">
+			<li><a href="#">プライバシーポリシー</a></li>
+			<li><a href="/corporate/#accessmap">アクセスマップ</a></li>
+		</ul>
+	</div>
+</nav>
+
+<article class="l-contents">
+
+	<section class="sec-contact-header">
+		<div class="l-inr">
+			<h1 class="contact-header bold">取材/広報に関してのお問い合わせ</h1>
+		</div>
+	</section>
+
+	<section class="sec-contact-form">
+
+		<div class="l-inr">
+		{if $is_err}<div class="form-alert">入力された内容に誤りがあります。</div>{/if}
+ 		
+		<form action="{$ctl}" method="post" name="formobj">
+    <table width="100%" border="0">
+	{section name=item loop=$widgetffd_list}
+		{assign var=widgetffd value=$widgetffd_list[item]}
+		{assign var=wgffd_no value=$widgetffd.no}
+		{assign var=wgffd_val value=$widget_freelist.$wgffd_no.0}
+		{assign var=wgffd_textval value=$widget_freelist.$wgffd_no.1}
+		{assign var=err_param value=wgffd_$wgffd_no}
+
+        <div class="form-element" {$errclass.$err_param}>
+        	<div class="form-title"><label>{$widgetffd.name}</label>{if $widgetffd.status eq '1'}<i>必須</i>{/if}</div>
+        	<div class="form-detail">
+			{if $widgetffd.type eq '1'}
+
+				<input name="wgffd_{$wgffd_no}" type="text" id="corporate_name" value="{$wgffd_val}" />
+
+			{elseif $widgetffd.type eq '2'}
+
+				<textarea name="wgffd_{$wgffd_no}" id="comment">{$wgffd_textval}</textarea>
+
+			{elseif $widgetffd.type eq '3'}
+				{assign var=wgffd_val_list value=$widget_freelist.$wgffd_no.2}
+				{assign var=wgffd_item_list value=$widgetffd.freeitem_list}
+				{section name=mitem loop=$wgffd_item_list}
+					{assign var=wgffd_item value=$wgffd_item_list[mitem]}
+					{assign var=wgffd_item_no value=$smarty.section.mitem.index+1}
+
+					{assign var=checked value=''}
+					{foreach from=$wgffd_val_list item=val_tmp}
+					    {if $val_tmp eq $wgffd_item.name}{assign var=checked value='checked'}{/if}
+					{/foreach}
+					<input name="wgffd_{$wgffd_no}[]" 
+						type="checkbox" value="{$wgffd_item.name}" {$checked}/> {$wgffd_item.name}  
+				{$/loop}
+			{elseif $widgetffd.type eq '4'}
+				{assign var=wgffd_item_list value=$widgetffd.freeitem_list}
+				{section name=mitem loop=$wgffd_item_list}
+					{assign var=wgffd_item value=$wgffd_item_list[mitem]}
+					{assign var=wgffd_item_no value=$smarty.section.mitem.index+1}
+					<input name="wgffd_{$wgffd_no}" type="radio" value="{$wgffd_item.name}" 
+						{if $wgffd_item.name eq $wgffd_val}checked=""{/if}/> {$wgffd_item.name}  
+				{$/loop}
+			{elseif $widgetffd.type eq '5'}
+				<select name="wgffd_{$wgffd_no}">
+				{if $widgetffd.status eq '2'}<option value="-1"> -- </option>{/if}
+				{assign var=wgffd_item_list value=$widgetffd.freeitem_list}
+				{section name=mitem loop=$wgffd_item_list}
+					{assign var=wgffd_item value=$wgffd_item_list[mitem]}
+					{assign var=wgffd_item_no value=$smarty.section.mitem.index+1}
+					<option value="{$wgffd_item.name}" {if $wgffd_item.name eq $wgffd_val}selected=""{/if}>{$wgffd_item.name}</option>
+				{$/loop}
+				</select>
+			{/if}
+			</div>
+        </div>
+	{$/loop}
+    </table>
+    
+    {if $is_err}<div class="form-alert">※入力項目に誤りがあります</div>{/if}
+
+    <div class="form-submit">
+		<input type="checkbox" name="agreement" id="agreement" value="同意する" class="check-sf"> <label for="agreement"><a href="#">プライバシーポリシー</a>を確認の上、同意する</label>
+		<input type="hidden" name="widget_id" value="{$widget->id}" />
+		<input type="hidden" name="act" value="page_c_widgetform_cfm" />
+		<p class="form-button"><input name="submit" type="submit" id="" tabindex="5" class="btn-Rectangle btn btn-black btn-medium fm font-en" /></p>
+	</div>
+    
+	</form>
+
+	</section>
+
+</article>
+
+{$footer$}

@@ -1,0 +1,110 @@
+{$header$}
+<title>採用に関してのお問い合わせ（確認） - お問い合わせ | 株式会社ゲームエイト</title>
+
+<meta name="keyword" content="お問い合わせ,採用,Game8">
+
+</head>
+
+<body class="is-page-contact is-navi-contact is-subnavi-03">
+<div class="l-wrapper">
+
+<header class="l-header">
+<div class="l-inr">
+	<button class="l-header-menu sp-only" id="js-overlay-open">
+		<img src="/user/img/navi-open.png" alt="開く" />
+	</button>
+	<p class="l-header-logo"><a href="/"><span>Game8</span></a></p>
+	<nav class="l-navi pc-only">
+		<a class="navi-corporate" href="/corporate/about/">企業情報</a>
+		<a class="navi-service" href="/service/">サービス紹介</a>
+		<a class="navi-news" href="/news/">ニュース</a>
+		<a class="navi-recruit" href="/recruit/">採用情報</a>
+	</nav>
+	<p class="l-header-link pc-only"><a href="/contact/pr/" class="btn btn-white btn-small fs">お問い合わせ</a></p>
+</div>
+<div class="l-subheader">
+<div class="l-inr">
+	<h2 class="header-title bold">お問い合わせ</h2>
+	<div id="scroll">
+	<nav class="l-subnavi">
+		<a class="subnavi-01" href="/contact/pr/">取材広報に関して</a>
+		<a class="subnavi-02" href="/contact/service/">サービスに関して</a>
+		<a class="subnavi-03" href="/contact/recruit/">採用に関して</a>
+	</nav>
+	</div>
+</div>
+</div>
+</header>
+
+<nav class="l-navi sp-only" id="js-overlay">
+	<button class="navi-close" id="js-overlay-close">
+		<img src="/user/img/navi-close.png" alt="閉じる" />
+	</button>
+	<div class="l-navi-links">
+		<ul class="items-wrap">
+			<li><a class="navi-corporate" href="/corporate/about/">企業情報</a></li>
+			<li><a class="navi-service" href="/service/">サービス紹介</a></li>
+			<li><a class="navi-news" href="/news/">ニュース</a></li>
+			<li><a class="navi-recruit" href="/recruit/">採用情報</a></li>
+			<li><a class="navi-contact" href="/contact/pr/">お問い合わせ</a></li>
+		</ul>
+		<ul class="items-wrap subnavi">
+			<li><a href="#">プライバシーポリシー</a></li>
+			<li><a href="/corporate/#accessmap">アクセスマップ</a></li>
+		</ul>
+	</div>
+</nav>
+
+<article class="l-contents">
+
+	<section class="sec-contact-header">
+		<div class="l-inr">
+			<h1 class="contact-header bold">採用に関してのお問い合わせ</h1>
+		</div>
+	</section>
+
+	<section class="sec-contact-form">
+
+		<div class="l-inr">
+
+		<div class="form-text">下記ご記入内容を確認いただき問題がなければ画面下の送信するボタンを押してください。</div>
+
+	<form action="{$ctl}" method="post" name="formobj">
+        <table width="100%" border="0" >
+
+	{section name=item loop=$widgetffd_list}
+		{assign var=widgetffd value=$widgetffd_list[item]}
+		{assign var=wgffd_no value=$widgetffd.no}
+		{assign var=wgffd_val value=$widget_freelist.$wgffd_no.0}
+		{assign var=wgffd_textval value=$widget_freelist.$wgffd_no.1}
+		<div class="form-element">
+			<div class="form-title">
+				<label>{$widgetffd.name}</label>{if $widgetffd.status eq '1'}<i>必須</i>{/if}
+			</div>
+			<div class="form-confirm">
+				{if $widgetffd.type eq '2'}{$wgffd_textval}
+				{else}{$wgffd_val}
+				{/if}
+			</div>
+		</div>
+	{$/loop}
+		</table>
+
+		<div class="form-submit">
+			<ul class="form-button">
+				<input type="hidden" name="widget_id" value="{$widget->id}" />
+				<input type="hidden" name="act" value="page_c_widgetform_fin" />
+				<li><input type="button" id="" tabindex="5" value="内容編集する" class="btn-Rectangle btn btn-back btn-medium fm font-en" onClick="javascript:history.back()"/></li>
+				<li><input name="submit" type="submit" id="" tabindex="5" value="送信する" class="btn-Rectangle btn btn-next btn-medium fm font-en" /></li>
+			</ul>
+		</div>
+
+	</form>
+
+		</div>
+
+	</section>
+
+</article>
+
+{$footer$}
