@@ -61,21 +61,25 @@
 	<section class="sec-recruit-job">
 		<div class="l-inr">
 		<h3 class="sec-header bold">現在の募集職種</h3>
+		<!-- 記事ありの場合 -->
+		{if $detail >= 1}
 		{$loop}
 		<div class="item">
 			<div class="item-img"><img src="{$image(1,230,156,'trim')}" /></div>
 			<div class="item-detail">
 				<h4 class="item-name">{$title}</h4>
-				<p class="item-text">{$detail(1)}</p>
+				<p class="item-text">{$wg->strip_tags($wg->detail(1))}</p>
 			</div>
 			<p class="item-link"><a href="{$detail_link(1)}" class="btn btn-next btn-medium fm" target="">エントリーする</a></p>
 		</div>
 		{$/loop}
 
+		{else $detail eq 0}
 		<!-- 募集なしの場合 -->
 		<div class="item">
 				<p class="item-none">現在募集中の職種はありません。</p>
 		</div>
+		{/if}
 
 		</div>
 

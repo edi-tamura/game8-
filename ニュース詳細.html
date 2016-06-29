@@ -1,12 +1,20 @@
-
 {$header$}
-<title>{$title} | ニュース | 株式会社ゲームエイト</title>
+<title>ニュース | 株式会社ゲームエイト</title>
 <meta name="description" content="">
-<meta property="og:title" content="{$title} | ニュース | 株式会社ゲームエイト">
-<meta property="og:image" content="{$image(1)}">
+<meta property="og:image" content="http://game8.com/user/img/og.png">
 </head>
 
-<body class="is-page-corporate is-navi-news is-subnavi-01">
+{assign var=is_subnavi_no value='01'}
+{if $param_cat eq 1}
+	{assign var=is_subnavi_no value='03'}
+{elseif $param_cat eq 2}
+	{assign var=is_subnavi_no value='02'}
+{elseif $param_cat eq 3}
+	{assign var=is_subnavi_no value='04'}
+{elseif $param_cat eq 4}
+	{assign var=is_subnavi_no value='05'}
+{/if}
+<body class="is-page-corporate is-navi-news is-subnavi-{$is_subnavi_no}">
 <div class="l-wrapper">
 
 <header>
@@ -16,11 +24,11 @@
 	<h1 class="header-title bold">ニュース</h1>
 	<div id="scroll">
 	<nav class="l-subnavi">
-		<a class="subnavi-01" href="/recruit/">全て</a>
-		<a class="subnavi-02" href="/recruit/environment/">プレスリリース</a>
-		<a class="subnavi-03" href="/recruit/environment/">ニュース</a>
-		<a class="subnavi-04" href="/recruit/environment/">リクルート</a>
-		<a class="subnavi-05" href="/recruit/environment/">その他</a>
+		<a class="subnavi-01" href="/news/">全て</a>
+		<a class="subnavi-02" href="/news/pressrelease/">プレスリリース</a>
+		<a class="subnavi-03" href="/news/newstopics/">ニュース</a>
+		<a class="subnavi-04" href="/news/recruit/">リクルート</a>
+		<a class="subnavi-05" href="/news/other/">その他</a>
 	</nav>
 	</div>
 </div>
@@ -48,35 +56,59 @@
 
 <article class="l-contents">
 
-	<section class="sec-news-header">
-		<div class="intro-bg">
-		<div class="cover">
-			<div class="l-inr">
-				<div class="contents">
-				<h1 class="sec-header bold">{$title}</h1>
-				<p class="text">{$date('Y.m.d')}</p>
-				</div>
-			</div>
-		</div>
-		</div>
+	<section class="sec-news-intro">
+		<div class="intro-bg"><div class="cover"></div></div>
 	</section>
 
-	<section class="sec-news-detail">
-		<div class="l-inr">
-		<h3 class="sec-header">インターネットマーケティングの総合コンサルティング企業メディックスが、「AIアナリスト」を導入します。</h3>
+	<section class="sec-news-list">
 
-		<div class="contents">
-		{$blog_text}
-		</div>
+	<div class="l-inr">
+		<ul class="items">
+
+			{$loop}
+			<li class="item">
+				<a href="{$url}">
+					<div class="item-img">{if $wg->is_image(1) eq'0'}<img src="/user/img/top/top-news-noimg.gif" />{/if}{if $wg->is_image(1) eq'1'}<img src="{$image(1,220,142,'trim')}" />{/if}</div>
+					<div class="contents">
+					<p class="item-info"><span class="item-category">{if $cts.category_name eq 'News Topics'}News Topics{/if}{if $cts.category_name eq 'Press Release'}Press Release{/if}{if $cts.category_name eq 'recruit'}Recruit{/if}{if $cts.category_name eq 'Other'}Other{/if}</span><span class="item-date">{$date}</span></p>
+					<p class="item-text">{$title}</p>
+					</div>
+				</a>
+			</li>
+			{$/loop}
+
+		</ul>
 
 		<div class="pagination list-pagination">
-			<div class="pagination-prev font-en"><span><i class="icon icon-arrow_lb"></i>Prev</span></div>
-			<div class="pagination-next font-en"><a href="#" class="is-active">Next<i class="icon icon-arrow_rb"></i></a></div>
-			<div class="link bold"><a href="/contents/news/">ニュース一覧</a></div>
+			{assign var=flg_prev value=false}
+			{foreach from=$pagerlist item=obj key=key}
+				{if $obj.type eq 'prev'}
+					{assign var=flg_prev value=true}
+					<div class="pagination-prev font-en"><a href="?page={$obj.page}" class="is-active"><i class="icon icon-arrow_lb"></i>Prev</a></div>
+				{/if}
+			{/foreach}
+			{if $pagerlist && !$flg_prev}<div class="pagination-prev font-en"><span><i class="icon icon-arrow_lb"></i>Prev</span></div>{/if}
+
+			{assign var=flg_next value=false}
+			{foreach from=$pagerlist item=obj key=key}
+				{if $obj.type eq 'next'}
+					{assign var=flg_next value=true}
+					<div class="pagination-next font-en"><a href="?page={$obj.page}" class="is-active">Next<i class="icon icon-arrow_rb"></i></a></div>
+				{/if}
+			{/foreach}
+			{if $pagerlist && !$flg_next}<div class="pagination-next font-en"><span>Next<i class="icon icon-arrow_rb"></i></span></div>{/if}
+
+			<div class="pagination-number">
+			{foreach from=$pagerlist item=obj key=key}
+				{if $obj.type eq 'current'}<span class="number-item is-current">{$obj.page}</span>{/if}
+				{if $obj.type eq 'normal'}<a href="?page={$obj.page}" class="number-item">{$obj.page}</a>{/if}
+			{/foreach}
+			</div>
+
 		</div>
 
+	</div>
 
-		</div>
 	</section>
 
 </article>
