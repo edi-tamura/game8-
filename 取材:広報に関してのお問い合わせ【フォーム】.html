@@ -2,6 +2,8 @@
 <title>取材/広報に関してのお問い合わせ（入力） - お問い合わせ | 株式会社ゲームエイト</title>
 <meta name="keyword" content="お問い合わせ,取材広報,Game8">
 
+<!-- Pages Style and Script -->
+
 </head>
 
 <body class="is-page-contact is-navi-contact is-subnavi-01">
@@ -48,7 +50,7 @@
 			<li><a class="navi-contact" href="/contact/pr/">お問い合わせ</a></li>
 		</ul>
 		<ul class="items-wrap subnavi">
-			<li><a href="#">プライバシーポリシー</a></li>
+			<li><a href="/privacy/">プライバシーポリシー</a></li>
 			<li><a href="/corporate/#accessmap">アクセスマップ</a></li>
 		</ul>
 	</div>
@@ -125,13 +127,13 @@
 	{$/loop}
     </table>
     
-    {if $is_err}<div class="form-alert">※入力項目に誤りがあります</div>{/if}
+    {if $is_err}<p class="form-alert">※入力項目に誤りがあります</p>{/if}
 
     <div class="form-submit">
 		<input type="checkbox" name="agreement" id="agreement" value="同意する" class="check-sf"> <label for="agreement"><a href="/privacy/">プライバシーポリシー</a>を確認の上、同意する</label>
 		<input type="hidden" name="widget_id" value="{$widget->id}" />
 		<input type="hidden" name="act" value="page_c_widgetform_cfm" />
-		<p class="form-button"><input name="submit" type="submit" id="" tabindex="5" class="btn-Rectangle btn btn-black btn-medium fm font-en" /></p>
+		<p class="form-button"><input name="submit" type="submit" id="" tabindex="5" class="btn-Rectangle btn btn-black btn-medium fm font-en　btn_submit" /></p>
 	</div>
     
 	</form>

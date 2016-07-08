@@ -1,6 +1,7 @@
 {$header$}
 
 <title>{$web->name}</title>
+<meta name="description" content="{$web->meta_desc}">
 <meta name="keyword" content="{$web->meta_keyword}">
 
 <!-- OGP -->
@@ -24,14 +25,14 @@
 	</button>
 	<div class="l-navi-links">
 		<ul class="items-wrap">
-			<li><a class="navi-corporate" href="/corporate/about/">企業情報</a></li>
+			<li><a class="navi-corporate" href="/corporate/about.php">企業情報</a></li>
 			<li><a class="navi-service" href="/service/">サービス紹介</a></li>
 			<li><a class="navi-news" href="/news/">ニュース</a></li>
 			<li><a class="navi-recruit" href="/recruit/">採用情報</a></li>
 			<li><a class="navi-contact" href="/contact/pr/">お問い合わせ</a></li>
 		</ul>
 		<ul class="items-wrap subnavi">
-			<li><a href="#">プライバシーポリシー</a></li>
+			<li><a href="/privacy/">プライバシーポリシー</a></li>
 			<li><a href="/corporate/#accessmap">アクセスマップ</a></li>
 		</ul>
 	</div>
@@ -44,7 +45,7 @@
 		<div class="contents">
 			<h1 class="logo"><img src="/user/img/logo-img.png" alt="Game8ロゴ画像" /></h1>
 			<p class="text bold">ゲームをもっと楽しくする</p>
-			<p class="link pc-only"><a href="/corporate/about/" class="btn btn-border-white btn-medium fm font-en">READ MORE</a></p>
+			<p class="link pc-only"><a href="/corporate/about.php" class="btn btn-border-white btn-medium fm font-en">READ MORE</a></p>
 		</div>
 	</section>
 
@@ -54,7 +55,7 @@
 		<div class="contents">
 			<h2 class="sec-header bold">サービス</h2>
 			<p class="text">私たちは現在game8.jp（ゲームエイト）という月間1000万人以上が訪れるのゲーム総合情報Webサービスを運営、提供しています。ゲームエイト は、「ゲームをもっと楽しくする」というコンセプトで2014年夏にβ版としてスタートした、ゲームユーザー向けのWebサービスです。</p>
-			<p class="link"><a href="/corporate/about/" class="btn btn-border-black btn-medium fm font-en">READ MORE</a></p>
+			<p class="link"><a href="/corporate/about.php" class="btn btn-border-black btn-medium fm font-en">READ MORE</a></p>
 		</div>
 		</div>
 	</section>
@@ -78,5 +79,4 @@
 	</section>
 
 </article>
-
 {$footer$}
